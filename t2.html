@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Horizontal Timeline - Line Through Dots</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #fff;
+      color: #172137;
+      margin: 0;
+      padding: 40px 0;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 38px;
+    }
+
+    .timeline-outer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 0 60px 0;
+      position: relative;
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: none;
+    }
+    .timeline-outer::-webkit-scrollbar {
+      display: none;
+    }
+
+    .timeline-inner {
+      display: flex;
+      position: relative;
+      min-width: 100%;
+      width: max-content;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+    }
+
+    .timeline-track {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background-color: #36d399;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .timeline-event {
+      position: relative;
+      flex-shrink: 0;
+      width: 240px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-dot {
+      width: 18px;
+      height: 18px;
+      background-color: #36d399;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .timeline-card {
+      width: 220px;
+      background-color: #f4f6f8;
+      box-shadow: 0 2px 10px rgba(54,211,153,0.06);
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 0.95rem;
+      color: #172137;
+      position: absolute;
+      text-align: left;
+    }
+
+    .timeline-event.above .timeline-card {
+      bottom: calc(50% + 24px);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .timeline-event.below .timeline-card {
+      top: calc(50% + 24px);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .timeline-card::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+
+    .timeline-event.above .timeline-card::after {
+      bottom: -12px;
+      border-top: 12px solid #f4f6f8;
+    }
+
+    .timeline-event.below .timeline-card::after {
+      top: -12px;
+      border-bottom: 12px solid #f4f6f8;
+    }
+
+    .year {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline-event {
+        width: 180px;
+        height: 240px;
+      }
+      .timeline-card {
+        width: 160px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .timeline-event {
+        width: 85vw;
+        min-width: 160px;
+      }
+      .timeline-card {
+        width: 90vw;
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Our Journey</h2>
+  <div class="timeline-outer">
+    <div class="timeline-inner">
+      <div class="timeline-track"></div>
+
+      <div class="timeline-event above">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="year">2009</span>
+          Landfill Free North America manufacturing + HQ*
+        </div>
+      </div>
+
+      <div class="timeline-event below">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="year">2012</span>
+          Landfill Free Global manufacturing + HQ*
+        </div>
+      </div>
+
+      <div class="timeline-event above">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="year">2013</span>
+          Beijing Showroom LEEDv4 Gold certified. Launched Haworth’s banned chemical commitment.
+        </div>
+      </div>
+
+      <div class="timeline-event below">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="year">2016</span>
+          Shanghai Showroom certified to WELL Silver level.
+        </div>
+      </div>
+      <div class="timeline-event above">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="year">2016</span>
+          Shanghai Showroom certified to WELL Silver level.
+        </div>
+      </div>
+      <div class="timeline-event below">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="year">2016</span>
+          Shanghai Showroom certified to WELL Silver level.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+  const timelineOuter = document.querySelector('.timeline-outer');
+  const timelineInner = document.querySelector('.timeline-inner');
+  let scrollAmount = 0;
+  const scrollStep = 260; // approximate width of one timeline event including margin
+  function getMaxScroll() {
+    return timelineInner.scrollWidth - timelineOuter.clientWidth;
+  }
+
+  function autoScroll() {
+    const maxScroll = getMaxScroll();
+    if(scrollAmount < maxScroll) {
+      scrollAmount += scrollStep;
+    } else {
+      scrollAmount = 0;
+    }
+    timelineOuter.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+  }
+
+  let scrollInterval = setInterval(autoScroll, 3000);
+
+  // Pause on mouse enter
+  timelineOuter.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+  // Resume on mouse leave
+  timelineOuter.addEventListener('mouseleave', () => {
+    scrollInterval = setInterval(autoScroll, 3000);
+  });
+
+  // Reset scrollAmount if window resizes
+  window.addEventListener('resize', () => {
+    scrollAmount = timelineOuter.scrollLeft;
+  });
+</script>
+
+</body>
+</html>

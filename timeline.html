@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Journey Timeline</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #fff;
+      color: #172137;
+    }
+    .timeline-section {
+      padding: 32px 0 0 0;
+      text-align: center;
+    }
+    .timeline-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 38px;
+      color: #172137;
+    }
+    .timeline-outer {
+      max-width: 1200px;
+      margin: 0 auto 32px auto;
+      position: relative;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 0 0 60px 0;
+      background: transparent;
+      scrollbar-width: none;
+    }
+    .timeline-outer::-webkit-scrollbar {
+      display: none;
+    }
+    .timeline-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: #36d399;
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+    .timeline-inner {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 2;
+      width: max-content;
+      min-width: 100%;
+      transition: transform 0.6s cubic-bezier(.77,0,.18,1);
+      will-change: transform;
+    }
+    .timeline-event {
+      position: relative;
+      width: 240px;
+      flex-shrink: 0;
+      margin: 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+    }
+    /* Speech bubble card styling */
+    .timeline-card {
+      background: #f2f4f6;
+      color: #172137;
+      border-radius: 4px;
+      padding: 18px 16px 16px 16px;
+      min-height: 100px;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0;
+      margin-top: 0;
+      box-sizing: border-box;
+      border: none;
+      position: relative;
+    }
+    .timeline-card .year {
+      font-size: 1.1rem;
+      color: #172137;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+    /* Pointer triangle */
+    .timeline-event.above .timeline-card::after,
+    .timeline-event.below .timeline-card::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+    .timeline-event.above .timeline-card::after {
+      bottom: -14px;
+      border-top: 14px solid #f2f4f6;
+    }
+    .timeline-event.below .timeline-card::after {
+      top: -14px;
+      border-bottom: 14px solid #f2f4f6;
+    }
+    /* Dot */
+    .timeline-dot {
+      width: 14px;
+      height: 14px;
+      background: #36d399;
+      border-radius: 50%;
+      z-index: 3;
+      box-sizing: border-box;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50%;
+      border: 2px solid #fff;
+    }
+    .timeline-event.above .timeline-dot {
+      top: calc(100% - 7px);
+    }
+    .timeline-event.below .timeline-dot {
+      top: -7px;
+    }
+    /* Alternating card positions */
+    .timeline-event.above .timeline-card {
+      margin-bottom: 36px;
+    }
+    .timeline-event.below .timeline-card {
+      margin-top: 36px;
+    }
+    /* Navigation buttons */
+    .timeline-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+    .timeline-nav-btn {
+      width: 38px;
+      height: 38px;
+      background: #fff;
+      border: 2px solid #36d399;
+      color: #36d399;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(54,211,153,0.08);
+    }
+    .timeline-nav-btn:hover, .timeline-nav-btn:focus {
+      background: #36d399;
+      color: #fff;
+      outline: none;
+    }
+    @media (max-width: 900px) {
+      .timeline-outer {
+        padding-bottom: 80px;
+      }
+      .timeline-event {
+        width: 180px;
+        margin: 0 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .timeline-section h2 {
+        font-size: 1.3rem;
+      }
+      .timeline-event {
+        width: 80vw;
+        min-width: 160px;
+        margin: 0 4px;
+      }
+      .timeline-nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="timeline-section">
+    <h2>Our Journey</h2>
+    <div class="timeline-outer" id="timelineOuter">
+      <div class="timeline-track"></div>
+      <div class="timeline-inner" id="timelineInner">
+        <div class="timeline-event above">
+          <div class="timeline-card"><span class="year">1992</span>Opened 19,000 sq. ft. Recycling Center at HQ.</div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-event below">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card"><span class="year">1998</span>ISO 14001 certification.</div>
+        </div>
+        <div class="timeline-event above">
+          <div class="timeline-card"><span class="year">2005</span>Corporate Sustainability Report*.</div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-event below">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card"><span class="year">2008</span>HQ LEED NC Gold certified Organic Workspace Strategy – sustainable spaces.</div>
+        </div>
+        <div class="timeline-event above">
+          <div class="timeline-card"><span class="year">2009</span>Landfill Free North America manufacturing + HQ*.</div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-event below">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card"><span class="year">2012</span>Landfill Free Global manufacturing + HQ*.</div>
+        </div>
+        <div class="timeline-event above">
+          <div class="timeline-card"><span class="year">2013</span>Beijing Showroom LEEDv4 Gold certified**<br>Launched Haworth’s banned chemical commitment.</div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-event below">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card"><span class="year">2016</span>Shanghai Showroom certified to WELL Silver level.</div>
+        </div>
+        <div class="timeline-event above">
+          <div class="timeline-card"><span class="year">2018</span>New accreditations.<br>Launched no cut/sew.</div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+      <div class="timeline-nav">
+        <button class="timeline-nav-btn prev" aria-label="Previous">&#x276E;</button>
+        <button class="timeline-nav-btn next" aria-label="Next">&#x276F;</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Timeline carousel logic
+    const timelineInner = document.getElementById('timelineInner');
+    const events = timelineInner.querySelectorAll('.timeline-event');
+    const prevBtn = document.querySelector('.timeline-nav-btn.prev');
+    const nextBtn = document.querySelector('.timeline-nav-btn.next');
+    const timelineOuter = document.getElementById('timelineOuter');
+    let currentIndex = 0;
+
+    function getEventWidth() {
+      const event = timelineInner.querySelector('.timeline-event');
+      return event ? event.offsetWidth + parseInt(getComputedStyle(event).marginLeft) + parseInt(getComputedStyle(event).marginRight) : 240;
+    }
+
+    function updateTimeline() {
+      const eventWidth = getEventWidth();
+      const visibleEvents = Math.floor(timelineOuter.offsetWidth / eventWidth);
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > events.length - visibleEvents) currentIndex = events.length - visibleEvents;
+      const offset = -currentIndex * eventWidth;
+      timelineInner.style.transform = `translateX(${offset}px)`;
+    }
+
+    function next() {
+      currentIndex++;
+      updateTimeline();
+      resetAutoScroll();
+    }
+    function prev() {
+      currentIndex--;
+      updateTimeline();
+      resetAutoScroll();
+    }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    // Auto-scroll
+    let autoScrollInterval;
+    function autoScroll() {
+      const eventWidth = getEventWidth();
+      const visibleEvents = Math.floor(timelineOuter.offsetWidth / eventWidth);
+      if (currentIndex < events.length - visibleEvents) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateTimeline();
+    }
+    function resetAutoScroll() {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(autoScroll, 3000);
+    }
+    timelineOuter.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+    timelineOuter.addEventListener('mouseleave', resetAutoScroll);
+
+    window.addEventListener('resize', updateTimeline);
+
+    // Initialize
+    updateTimeline();
+    resetAutoScroll();
+  </script>
+</body>
+</html>

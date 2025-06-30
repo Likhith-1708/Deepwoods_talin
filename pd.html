@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sustainable Product Design</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f172a;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 720px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .tab-box {
+      background: #1e293b;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-headers {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #334155;
+    }
+
+    .tab {
+      flex: 1 1 25%;
+      padding: 20px;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      text-align: left;
+      border: none;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+
+    .tab:hover {
+      background: #273449;
+    }
+
+    .tab.active {
+      background: #0f172a;
+      border-bottom: 4px solid #10b981;
+    }
+
+    .tab i {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #10b981;
+    }
+
+    .tab-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .tab-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .tab-content {
+      padding: 30px 24px;
+      text-align: left;
+    }
+
+    .tab-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #10b981;
+    }
+
+    .tab-content p {
+      font-size: 1rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .tab {
+        flex: 1 1 100%;
+      }
+
+      .tab-content {
+        padding: 24px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="section">
+    <h2>Sustainable Product Design</h2>
+    <p>
+      Every product we create is designed with the planet in mind, following cradle-to-cradle principles that eliminate waste and maximize resource efficiency.
+    </p>
+
+    <div class="tab-box">
+      <div class="tab-headers">
+        <button class="tab active" data-tab="design">
+          <i>♻️</i>
+          <div class="tab-title">Circular Design</div>
+          <div class="tab-subtitle">Products designed for complete material recovery</div>
+        </button>
+        <button class="tab" data-tab="materials">
+          <i>📦</i>
+          <div class="tab-title">Sustainable Materials</div>
+          <div class="tab-subtitle">Prioritizing renewable and recycled content</div>
+        </button>
+        <button class="tab" data-tab="durability">
+          <i>🛠️</i>
+          <div class="tab-title">Durability & Repair</div>
+          <div class="tab-subtitle">Built to last with easy maintenance</div>
+        </button>
+        <button class="tab" data-tab="innovation">
+          <i>🌱</i>
+          <div class="tab-title">Eco-Innovation</div>
+          <div class="tab-subtitle">Breakthrough technologies for minimal impact</div>
+        </button>
+      </div>
+
+      <div class="tab-content" id="tab-content">
+        <h3>Circular Design</h3>
+        <p>
+          Our circular design approach ensures that every component can be disassembled, recycled, or upcycled at the end of its life cycle.
+          We use modular designs that facilitate easy separation of materials and components.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const content = document.getElementById("tab-content");
+
+    const tabData = {
+      design: {
+        title: "Circular Design",
+        text: "Our circular design approach ensures that every component can be disassembled, recycled, or upcycled at the end of its life cycle. We use modular designs that facilitate easy separation of materials and components."
+      },
+      materials: {
+        title: "Sustainable Materials",
+        text: "We prioritize the use of renewable and recycled content to reduce our dependency on virgin resources. Our materials are chosen for their performance, sustainability, and end-of-life recyclability."
+      },
+      durability: {
+        title: "Durability & Repair",
+        text: "Our products are engineered for long-term use and minimal maintenance. Components are replaceable and serviceable, extending product lifespan and reducing landfill waste."
+      },
+      innovation: {
+        title: "Eco-Innovation",
+        text: "We invest in breakthrough technologies that reduce environmental impact, from energy-efficient production methods to biodegradable alternatives and carbon-neutral initiatives."
+      }
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const key = tab.dataset.tab;
+        content.innerHTML = `
+          <h3>${tabData[key].title}</h3>
+          <p>${tabData[key].text}</p>
+        `;
+      });
+    });
+  </script>
+</body>
+</html>

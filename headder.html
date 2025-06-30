@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Header Replication</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+      background-color: white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 42px;
+      display: block;
+    }
+
+    .nav {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav a,
+    .nav a:visited,
+    .nav a:hover,
+    .nav a:focus {
+      text-decoration: none !important;
+      color: black;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .nav a:hover {
+      color: #4AB0EF;
+    }
+
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      z-index: 20;
+    }
+    .hamburger span {
+      height: 4px;
+      width: 100%;
+      background: #222;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s;
+      display: block;
+    }
+
+    /* Hamburger open state */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: row;
+        padding: 12px 16px;
+      }
+      .nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background: white;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        display: none;
+        padding: 16px 0;
+      }
+      .nav.open {
+        display: flex;
+      }
+      .nav a {
+        padding: 14px 24px;
+        width: 100%;
+        text-align: left;
+        border-top: 1px solid #f0f0f0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="https://ghostwhite-sandpiper-320707.hostingersite.com/wp-content/uploads/2025/04/Talin-Web-Logo-1024x335-1-300x98.webp" alt="TALIN Logo" />
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Open menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav" id="navMenu">
+      <a href="#">About</a>
+      <a href="#">Products</a>
+      <a href="#">Infrastructure</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Certifications</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    // Optional: Close menu when a link is clicked (mobile)
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if(window.innerWidth <= 768) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

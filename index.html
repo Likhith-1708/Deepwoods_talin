@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Building a Sustainable Future</title>
+  <!-- Google Fonts: Open Sans -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient-top: #172137;
+      --bg-gradient-bottom: #14342b;
+      --headline: #fff;
+      --highlight: #36d399;
+      --subheadline: #b4c2d5;
+      --card-bg: #222e42;
+      --btn-bg: #36d399;
+      --btn-text: #fff;
+      --btn-hover: #2bb47d;
+      --goal-card-bg: #222e42;
+      --goal-text-green: #36d399;
+      --goal-text-blue: #6ca8ff;
+      --goal-text: #fff;
+      --goal-sub: #b4c2d5;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg-gradient-top) 0%, var(--bg-gradient-bottom) 100%);
+      min-height: 100vh;
+      color: var(--headline);
+    }
+    .hero {
+      text-align: center;
+      padding: 72px 16px 48px 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--headline);
+      letter-spacing: -1px;
+    }
+    .hero-title .highlight {
+      color: var(--highlight);
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--subheadline);
+      font-weight: 400;
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .explore-btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 32px;
+      transition: background 0.2s;
+      box-shadow: 0 2px 16px 0 rgba(54,211,153,0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .explore-btn:hover {
+      background: var(--btn-hover);
+    }
+    .scroll-indicator {
+      margin: 36px auto 0 auto;
+      display: block;
+      width: 28px;
+      height: 36px;
+      border: 2px solid var(--highlight);
+      border-radius: 18px;
+      position: relative;
+      opacity: 0.7;
+    }
+    .scroll-indicator::after {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--highlight);
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      transform: translateX(-50%);
+      animation: scroll-dot 1.2s infinite;
+    }
+    @keyframes scroll-dot {
+      0% { top: 8px; opacity: 1; }
+      70% { top: 20px; opacity: 0.5; }
+      100% { top: 8px; opacity: 1; }
+    }
+    .goal-section {
+      max-width: 900px;
+      margin: 60px auto 0 auto;
+      background: var(--goal-card-bg);
+      border-radius: 24px;
+      padding: 40px 28px 32px 28px;
+      text-align: center;
+      box-shadow: 0 4px 32px 0 rgba(23,33,55,0.10);
+    }
+    .goal-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+      color: var(--goal-text);
+    }
+    .goal-desc {
+      font-size: 1.18rem;
+      color: var(--goal-sub);
+      margin-bottom: 32px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .goal-kpis {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .goal-kpi {
+      text-align: center;
+      min-width: 120px;
+    }
+    .goal-kpi .main {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .goal-kpi .main.green {
+      color: var(--goal-text-green);
+    }
+    .goal-kpi .main.blue {
+      color: var(--goal-text-blue);
+    }
+    .goal-kpi .main.white {
+      color: var(--goal-text);
+    }
+    .goal-kpi .sub {
+      color: var(--goal-sub);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    @media (max-width: 700px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      .goal-title {
+        font-size: 1.3rem;
+      }
+      .goal-section {
+        padding: 24px 8px 20px 8px;
+      }
+      .goal-kpis {
+        flex-direction: column;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1 class="hero-title">
+      Building a <span class="highlight">Sustainable Future</span>
+    </h1>
+    <div class="hero-subtitle">
+      Leading the furniture industry towards environmental stewardship, social responsibility, and sustainable innovation
+    </div>
+    <button class="explore-btn" onclick="document.getElementById('goals').scrollIntoView({behavior:'smooth'})">
+      Explore Our Journey
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+    </button>
+    <span class="scroll-indicator"></span>
+  </section>
+
+  <section class="goal-section" id="goals">
+    <div class="goal-title">Our Goal</div>
+    <div class="goal-desc">
+      To become a net-zero carbon company by 2040 while pioneering circular economy principles in the furniture industry. We are committed to creating products that not only meet the highest sustainability standards but also contribute to the regeneration of our planet's ecosystems.
+    </div>
+    <div class="goal-kpis">
+      <div class="goal-kpi">
+        <div class="main green">Net Zero</div>
+        <div class="sub">Carbon Emissions</div>
+      </div>
+      <div class="goal-kpi">
+        <div class="main green">100%</div>
+        <div class="sub">Renewable Energy</div>
+      </div>
+      <div class="goal-kpi">
+        <div class="main white">Zero</div>
+        <div class="sub">Waste to Landfill</div>
+      </div>
+      <div class="goal-kpi">
+        <div class="main blue">100%</div>
+        <div class="sub">Sustainable Materials</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

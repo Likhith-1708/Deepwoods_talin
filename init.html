@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carbon & Initiative Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f3f6fa;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Featured Initiative */
+    .initiative-card {
+      background: linear-gradient(90deg, #1db88b, #21b8a7);
+      border-radius: 20px;
+      padding: 40px 32px;
+      box-shadow: 0 6px 32px rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+
+    .initiative-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .initiative-desc {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #e6fffb;
+      margin-bottom: 32px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .initiative-kpis {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .initiative-kpi {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+      min-width: 180px;
+      flex: 1 1 220px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    }
+
+    .initiative-kpi-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .initiative-kpi-label {
+      font-size: 1.01rem;
+      color: #e2f2ed;
+      opacity: 0.95;
+    }
+
+    /* Section Row */
+    .row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 32px;
+      flex: 1 1 360px;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Carbon Emissions Card */
+    .carbon-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .carbon-icon {
+      font-size: 1.5rem;
+      color: #23d18b;
+    }
+
+    .carbon-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .carbon-value {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #23d18b;
+      margin: 10px 0 6px;
+    }
+
+    .carbon-sub {
+      font-size: 1rem;
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    .carbon-key {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .carbon-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+
+    .carbon-list li::marker {
+      color: #23d18b;
+    }
+
+    /* Progress Card */
+    .progress-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .progress-year {
+      width: 48px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #e2f2ed;
+    }
+
+    .progress-bar-bg {
+      background: #314154;
+      flex: 1;
+      height: 14px;
+      border-radius: 8px;
+      margin: 0 12px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #23d18b 0%, #0d98ba 100%);
+      height: 100%;
+    }
+
+    .progress-label {
+      width: 48px;
+      font-weight: 700;
+      color: #23d18b;
+      text-align: left;
+    }
+
+    .progress-current {
+      margin-top: 20px;
+      background: #1a222b;
+      padding: 14px 18px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .progress-current-value {
+      color: #23d18b;
+      font-weight: 900;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .initiative-kpis {
+        flex-direction: column;
+        align-items: center;
+      }
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Initiative Card -->
+    <div class="initiative-card">
+      <div class="initiative-title">Featured Initiative: Take-Back Program</div>
+      <div class="initiative-desc">
+        Our comprehensive furniture take-back initiative ensures responsible end-of-life management, promoting circular economy principles and reducing environmental impact.
+      </div>
+      <div class="initiative-kpis">
+        <div class="initiative-kpi">
+          <div class="initiative-kpi-title">100%</div>
+          <div class="initiative-kpi-label">Product Recyclability</div>
+        </div>
+        <div class="initiative-kpi">
+          <div class="initiative-kpi-title">Zero</div>
+          <div class="initiative-kpi-label">Waste to Landfill</div>
+        </div>
+        <div class="initiative-kpi">
+          <div class="initiative-kpi-title">Circular</div>
+          <div class="initiative-kpi-label">Material Flows</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carbon and Progress Row -->
+    <div class="row">
+      <!-- Carbon Emissions -->
+      <div class="card">
+        <div class="carbon-header">
+          <span class="carbon-icon">⚡</span>
+          <span class="carbon-title">Carbon Emissions</span>
+        </div>
+        <div class="carbon-value">25% <span style="font-size: 1rem; font-weight: 400;">reduction</span></div>
+        <div class="carbon-sub">Since 2020 baseline (2024 data)</div>
+        <div class="carbon-key">Key Achievements:</div>
+        <ul class="carbon-list">
+          <li>Switched to 87% renewable energy sources</li>
+          <li>Energy-efficient manufacturing processes</li>
+          <li>Carbon offset programs</li>
+          <li>Supply chain emission reduction</li>
+        </ul>
+      </div>
+
+      <!-- Progress -->
+      <div class="card">
+        <div class="progress-title">Progress Over Time</div>
+        <div class="progress-bar-row">
+          <span class="progress-year">2020</span>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+          <span class="progress-label">100%</span>
+        </div>
+        <div class="progress-bar-row">
+          <span class="progress-year">2021</span>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 92%;"></div></div>
+          <span class="progress-label">92%</span>
+        </div>
+        <div class="progress-bar-row">
+          <span class="progress-year">2022</span>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 84%;"></div></div>
+          <span class="progress-label">84%</span>
+        </div>
+        <div class="progress-bar-row">
+          <span class="progress-year">2023</span>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 78%;"></div></div>
+          <span class="progress-label">78%</span>
+        </div>
+        <div class="progress-bar-row">
+          <span class="progress-year">2024</span>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%;"></div></div>
+          <span class="progress-label">75%</span>
+        </div>
+        <div class="progress-current">
+          Current Level
+          <span class="progress-current-value">75% of baseline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

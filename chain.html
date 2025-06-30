@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supply Chain Transparency</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: left;
+      transition: 
+        background 0.3s,
+        box-shadow 0.3s,
+        backdrop-filter 0.3s;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .card i {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #10b981;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .card:hover, .card:focus-within {
+      background: rgba(30,41,59,0.55);
+      box-shadow: 0 8px 32px 0 rgba(16,185,129,0.15), 0 1.5px 8px 0 rgba(59,130,246,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(59,130,246,0.18);
+      cursor: pointer;
+    }
+
+    .supply-chain {
+      background: linear-gradient(90deg, #10b981, #3b82f6);
+      border-radius: 24px;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .supply-chain h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .supply-chain p {
+      font-size: 1rem;
+      margin-bottom: 36px;
+      color: #e2e8f0;
+    }
+
+    .kpi-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .kpi-item {
+      flex: 1 1 150px;
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .kpi-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .kpi-label {
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+
+    .kpi-sub {
+      font-size: 0.9rem;
+      color: #d1fae5;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .kpi-grid {
+        gap: 20px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top 4 Cards -->
+    <div class="card-grid">
+      <div class="card">
+        <i>🌐</i>
+        <div class="card-title">Global Standards</div>
+        <div class="card-desc">Consistent ethical standards across all regions and suppliers</div>
+      </div>
+      <div class="card">
+        <i>👥</i>
+        <div class="card-title">Fair Labor</div>
+        <div class="card-desc">Ensuring fair wages, safe working conditions, and worker rights</div>
+      </div>
+      <div class="card">
+        <i>📈</i>
+        <div class="card-title">Continuous Improvement</div>
+        <div class="card-desc">Regular assessments and collaborative improvement programs</div>
+      </div>
+      <div class="card">
+        <i>📍</i>
+        <div class="card-title">Local Impact</div>
+        <div class="card-desc">Supporting local communities and economic development</div>
+      </div>
+    </div>
+
+    <!-- Supply Chain KPI Section -->
+    <div class="supply-chain">
+      <h2>Supply Chain Transparency</h2>
+      <p>We believe transparency builds trust and drives positive change throughout our supply chain</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="kpi-value">84</div>
+          <div class="kpi-label">Total Suppliers</div>
+          <div class="kpi-sub">Across 15+ countries</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-value">100%</div>
+          <div class="kpi-label">Audited Annually</div>
+          <div class="kpi-sub">Third-party verification</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-value">96%</div>
+          <div class="kpi-label">Compliance Rate</div>
+          <div class="kpi-sub">Ethical standards</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

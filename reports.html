@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sustainability Reports</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f7fafc;
+      color: #1a2a37;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      color: #6b7a89;
+      margin-bottom: 40px;
+    }
+
+    /* Featured Report */
+    .featured-report {
+      background: #e8f9f1;
+      border: 2px solid #23d18b;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(35,209,139,0.05);
+      margin-bottom: 40px;
+    }
+    .featured-report .row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .featured-icon {
+      font-size: 2rem;
+      color: #23d18b;
+      flex-shrink: 0;
+    }
+    .featured-content {
+      flex: 1;
+    }
+    .featured-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .featured-badges {
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 8px;
+      margin-right: 8px;
+    }
+    .badge.green {
+      background: #23d18b;
+      color: #fff;
+    }
+    .badge.outline {
+      background: #f3f6fa;
+      color: #23d18b;
+      border: 1.5px solid #23d18b;
+    }
+    .featured-desc {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    .meta {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+      color: #6b7a89;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.2s;
+    }
+    .btn.preview {
+      background: #fff;
+      color: #23d18b;
+      border: 1.5px solid #23d18b;
+    }
+    .btn.preview:hover {
+      background: #dff6ec;
+    }
+    .btn.download {
+      background: #23d18b;
+      color: #fff;
+    }
+    .btn.download:hover {
+      background: #1bb177;
+    }
+
+    /* Reports Grid */
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .report-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(35,209,139,0.05);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .report-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .report-icon {
+      font-size: 1.6rem;
+      color: #23d18b;
+    }
+    .report-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      flex: 1;
+    }
+    .report-badge {
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #23d18b;
+      border: 1.5px solid #23d18b;
+      background: #e8f9f1;
+    }
+    .report-label {
+      background: #f3f6fa;
+      color: #23d18b;
+    }
+    .report-desc {
+      font-size: 0.95rem;
+      color: #6b7a89;
+      margin: 8px 0;
+    }
+    .report-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: #a0b3c8;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .report-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="section-title">Sustainability Reports</h1>
+    <p class="section-subtitle">
+      Transparent, comprehensive reporting on our sustainability journey. Access detailed insights, data, and progress towards our environmental and social commitments.
+    </p>
+
+    <!-- Featured Report -->
+    <div class="featured-report">
+      <div class="row">
+        <div class="featured-icon">📄</div>
+        <div class="featured-content">
+          <div class="featured-title">2024 Sustainability Report</div>
+          <div class="featured-badges">
+            <span class="badge green">Featured</span>
+            <span class="badge outline">Annual Report</span>
+          </div>
+          <div class="featured-desc">
+            Comprehensive overview of our sustainability initiatives, achievements, and future commitments.
+          </div>
+          <div class="meta">
+            <span>📅 March 2024</span>
+            <span>📄 128 pages</span>
+            <span>💾 15.2 MB</span>
+          </div>
+          <div class="actions">
+            <a href="URL_TO_2024_REPORT.pdf" class="btn preview" target="_blank">Preview</a>
+            <a href="URL_TO_2024_REPORT.pdf" class="btn download" download>Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Reports -->
+    <div class="reports-grid">
+      <div class="report-card">
+        <div class="report-header">
+          <span class="report-icon">📄</span>
+          <span class="report-title">ESG Performance Summary Q4 2023</span>
+          <span class="report-badge report-label">Quarterly Report</span>
+        </div>
+        <div class="report-desc">
+          Environmental, Social, and Governance performance metrics and analysis.
+        </div>
+        <div class="report-meta">
+          <span>December 2023</span>
+          <span>24 pages</span>
+          <span>3.8 MB</span>
+        </div>
+        <div class="report-actions">
+          <a href="URL_TO_ESG_Q4_2023.pdf" class="btn preview" target="_blank">Preview</a>
+          <a href="URL_TO_ESG_Q4_2023.pdf" class="btn download" download>Download</a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="report-header">
+          <span class="report-icon">📄</span>
+          <span class="report-title">Climate Action Plan 2024-2030</span>
+          <span class="report-badge">Strategic Document</span>
+        </div>
+        <div class="report-desc">
+          Our roadmap to achieving carbon neutrality with detailed action plans and milestones.
+        </div>
+        <div class="report-meta">
+          <span>January 2024</span>
+          <span>45 pages</span>
+          <span>8.1 MB</span>
+        </div>
+        <div class="report-actions">
+          <a href="URL_TO_CLIMATE_ACTION_PLAN.pdf" class="btn preview" target="_blank">Preview</a>
+          <a href="URL_TO_CLIMATE_ACTION_PLAN.pdf" class="btn download" download>Download</a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="report-header">
+          <span class="report-icon">📄</span>
+          <span class="report-title">Supply Chain Transparency Report</span>
+          <span class="report-badge report-label">Annual Report</span>
+        </div>
+        <div class="report-desc">
+          Detailed analysis of our supply chain sustainability and ethical sourcing practices.
+        </div>
+        <div class="report-meta">
+          <span>February 2024</span>
+          <span>67 pages</span>
+          <span>11.5 MB</span>
+        </div>
+        <div class="report-actions">
+          <a href="URL_TO_SUPPLY_CHAIN_REPORT.pdf" class="btn preview" target="_blank">Preview</a>
+          <a href="URL_TO_SUPPLY_CHAIN_REPORT.pdf" class="btn download" download>Download</a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="report-header">
+          <span class="report-icon">📄</span>
+          <span class="report-title">Water Stewardship Assessment</span>
+          <span class="report-badge">Impact Report</span>
+        </div>
+        <div class="report-desc">
+          Comprehensive assessment of water usage, conservation efforts, and impact across operations.
+        </div>
+        <div class="report-meta">
+          <span>November 2023</span>
+          <span>32 pages</span>
+          <span>5.3 MB</span>
+        </div>
+        <div class="report-actions">
+          <a href="URL_TO_WATER_STEWARDSHIP.pdf" class="btn preview" target="_blank">Preview</a>
+          <a href="URL_TO_WATER_STEWARDSHIP.pdf" class="btn download" download>Download</a>
+        </div>
+      </div>
+
+      <div class="report-card">
+        <div class="report-header">
+          <span class="report-icon">📄</span>
+          <span class="report-title">Biodiversity & Ecosystem Impact Study</span>
+          <span class="report-badge">Research Report</span>
+        </div>
+        <div class="report-desc">
+          Third-party assessment of our environmental footprint on local ecosystems and biodiversity.
+        </div>
+        <div class="report-meta">
+          <span>October 2023</span>
+          <span>89 pages</span>
+          <span>18.7 MB</span>
+        </div>
+        <div class="report-actions">
+          <a href="URL_TO_BIODIVERSITY_STUDY.pdf" class="btn preview" target="_blank">Preview</a>
+          <a href="URL_TO_BIODIVERSITY_STUDY.pdf" class="btn download" download>Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
